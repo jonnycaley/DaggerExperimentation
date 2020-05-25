@@ -34,8 +34,9 @@ class EnterDetailsFragment : Fragment() {
         button_register.setOnClickListener {
             val userName = edittext_username.text.toString().trim()
             val password = edittext_password.text.toString()
+
             if (viewModel.areDetailsAcceptable(userName, password))
-                viewModel.registerUser()
+                viewModel.registerUser(userName, password)
         }
     }
 }

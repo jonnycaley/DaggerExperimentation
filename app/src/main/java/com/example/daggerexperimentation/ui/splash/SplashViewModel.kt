@@ -1,14 +1,14 @@
 package com.example.daggerexperimentation.ui.splash
 
 import androidx.lifecycle.ViewModel
-import com.example.daggerexperimentation.di.UserConfig
+import com.example.daggerexperimentation.di.UserManager
 import javax.inject.Inject
 
 class SplashViewModel @Inject constructor(
-    private val userConfig: UserConfig
+    private val userManager: UserManager
 ) : ViewModel() {
 
     fun hasUserRegistered(): Boolean {
-        return userConfig.hasUserRegistered
+        return userManager.hasUserRegistered
     }
 }
