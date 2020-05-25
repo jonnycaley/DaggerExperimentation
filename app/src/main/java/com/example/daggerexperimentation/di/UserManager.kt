@@ -12,7 +12,10 @@ class UserManager @Inject constructor() {
     }
 
     fun unRegisterUser() {
-        this.username = null
-        this.password = null
+        username = null
+        password = null
+    }
+    fun isUserLoggedIn(): Boolean {
+        return (username != null && password != null)
     }
 }

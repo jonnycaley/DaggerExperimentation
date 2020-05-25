@@ -9,6 +9,6 @@ class SplashViewModel @Inject constructor(
 ) : ViewModel() {
 
     fun hasUserRegistered(): Boolean {
-        return userManager.hasUserRegistered
+        return userManager.isUserLoggedIn()
     }
 }
