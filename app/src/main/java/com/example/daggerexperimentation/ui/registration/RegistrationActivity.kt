@@ -1,5 +1,7 @@
 package com.example.daggerexperimentation.ui.registration
 
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.daggerexperimentation.R
@@ -13,6 +15,13 @@ class RegistrationActivity : AppCompatActivity() {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.container, EnterDetailsFragment.newInstance())
                 .commitNow()
+        }
+    }
+
+    companion object {
+        fun start(context: Context) {
+            val intent = Intent(context, RegistrationActivity::class.java)
+            context.startActivity(intent)
         }
     }
 }
