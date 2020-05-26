@@ -1,7 +1,9 @@
 package com.example.daggerexperimentation.di
 
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class UserManager @Inject constructor() {
     var username: String? = null
     var password: String? = null
@@ -15,6 +17,7 @@ class UserManager @Inject constructor() {
         username = null
         password = null
     }
+
     fun isUserLoggedIn(): Boolean {
         return (username != null && password != null)
     }

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.daggerexperimentation.R
 import com.example.daggerexperimentation.ui.registration.enterdetails.EnterDetailsFragment
+import com.example.daggerexperimentation.ui.registration.termsandconditions.TermsAndConditionsFragment
 
 class RegistrationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,9 +14,15 @@ class RegistrationActivity : AppCompatActivity() {
         setContentView(R.layout.registration_activity)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, EnterDetailsFragment.newInstance())
+                .replace(R.id.container, EnterDetailsFragment())
                 .commitNow()
         }
+    }
+
+    fun navigateToTermsFragment() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.container, TermsAndConditionsFragment())
+            .commitNow()
     }
 
     companion object {

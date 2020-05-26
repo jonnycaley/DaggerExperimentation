@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.daggerexperimentation.MyApplication
 import com.example.daggerexperimentation.R
+import com.example.daggerexperimentation.ui.registration.RegistrationActivity
 import kotlinx.android.synthetic.main.enter_details_fragment.*
 import javax.inject.Inject
 
@@ -35,8 +36,10 @@ class EnterDetailsFragment : Fragment() {
             val userName = edittext_username.text.toString().trim()
             val password = edittext_password.text.toString()
 
-            if (viewModel.areDetailsAcceptable(userName, password))
+            if (viewModel.areDetailsAcceptable(userName, password)) {
                 viewModel.registerUser(userName, password)
+                (activity as RegistrationActivity).navigateToTermsFragment()
+            }
         }
     }
 }
