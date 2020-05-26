@@ -1,10 +1,13 @@
 package com.example.daggerexperimentation.di
 
+import android.content.Context
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class UserManager @Inject constructor() {
+class UserManager @Inject constructor(
+    val context: Context
+) {
     var username: String? = null
     var password: String? = null
 

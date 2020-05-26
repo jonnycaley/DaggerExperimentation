@@ -9,6 +9,7 @@ class MainViewModel @Inject constructor(
 ) : ViewModel() {
 
     fun getUserName(): String? = userManager.username
+
     fun unRegisterUser() {
         userManager.unRegisterUser()
     }
