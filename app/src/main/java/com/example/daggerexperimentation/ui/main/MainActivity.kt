@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.daggerexperimentation.MyApplication
 import com.example.daggerexperimentation.R
+import com.example.daggerexperimentation.ui.login.LoginActivity
 import com.example.daggerexperimentation.ui.registration.RegistrationActivity
 import com.example.daggerexperimentation.ui.splash.SplashActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -25,6 +26,11 @@ class MainActivity : AppCompatActivity() {
         button_unregister.setOnClickListener {
             viewModel.unRegisterUser()
             RegistrationActivity.start(this)
+        }
+
+        button_logout.setOnClickListener {
+            viewModel.logout()
+            LoginActivity.start(this)
         }
     }
 

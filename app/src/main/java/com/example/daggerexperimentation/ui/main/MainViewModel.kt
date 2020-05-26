@@ -8,9 +8,12 @@ class MainViewModel @Inject constructor(
     private val userManager: UserManager
 ) : ViewModel() {
 
-    fun getUserName(): String? = userManager.username
+    fun getUserName(): String? = userManager.getUsername()
 
     fun unRegisterUser() {
         userManager.unRegisterUser()
+    }
+    fun logout() {
+        userManager.logout()
     }
 }

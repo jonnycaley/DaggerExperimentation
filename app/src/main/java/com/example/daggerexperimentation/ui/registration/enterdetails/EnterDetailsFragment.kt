@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.daggerexperimentation.EditTextUtils
 import com.example.daggerexperimentation.MyApplication
 import com.example.daggerexperimentation.R
 import com.example.daggerexperimentation.ui.registration.RegistrationActivity
@@ -36,7 +37,7 @@ class EnterDetailsFragment : Fragment() {
             val userName = edittext_username.text.toString().trim()
             val password = edittext_password.text.toString()
 
-            if (viewModel.areDetailsAcceptable(userName, password)) {
+            if(EditTextUtils.areDetailsAcceptable(userName, password)) {
                 viewModel.registerUser(userName, password)
                 (activity as RegistrationActivity).navigateToTermsFragment()
             }
