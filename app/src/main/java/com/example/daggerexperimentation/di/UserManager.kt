@@ -1,27 +1,35 @@
 package com.example.daggerexperimentation.di
 
-import android.content.Context
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class UserManager @Inject constructor(
-    val context: Context
+    private val preferencesManager: PreferencesManager
 ) {
-    var username: String? = null
-    var password: String? = null
 
     fun registerUser(username: String, password: String) {
-        this.username = username
-        this.password = password
+        preferencesManager.setString(KEYS.USERNAME.key, username)
+        preferencesManager.setString(KEYS.PASSWORD.key, password)
     }
 
     fun unRegisterUser() {
-        username = null
-        password = null
+        preferencesManager.setString(KEYS.USERNAME.key, "")
+        preferencesManager.setString(KEYS.PASSWORD.key, "")
     }
 
-    fun isUserLoggedIn(): Boolean {
-        return (username != null && password != null)
+    fun isUserRegistered(): Boolean {
+        val username = preferencesManager.getString(KEYS.USERNAME.key)
+        val password = preferencesManager.getString(KEYS.PASSWORD.key)
+        return (username != "" && password != "")
+    }
+
+    fun getUsername(): String? {
+        return preferencesManager.getString(KEYS.USERNAME.key)
+    }
+
+    enum class KEYS(val key: String) {
+        USERNAME("username"),
+        PASSWORD("password")
     }
 }

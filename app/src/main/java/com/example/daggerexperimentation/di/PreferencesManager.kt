@@ -5,7 +5,7 @@ import javax.inject.Inject
 
 class PreferencesManager @Inject constructor(context: Context) {
 
-    val preferences = context.getSharedPreferences("Dagger", Context.MODE_PRIVATE)
+    private val preferences = context.getSharedPreferences("Preferences", Context.MODE_PRIVATE)
 
     fun setString(key: String, value: String) {
         with(preferences.edit()) {
@@ -14,10 +14,7 @@ class PreferencesManager @Inject constructor(context: Context) {
         }
     }
 
-    fun getString(key: String) {
-        with(preferences.edit()) {
-            getString(key)
-            commit()
-        }
+    fun getString(key: String): String {
+        return preferences.getString(key, "")!!
     }
 }
