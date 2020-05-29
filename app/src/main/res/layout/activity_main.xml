@@ -7,26 +7,11 @@
     android:gravity="center">
 
     <TextView
-        android:id="@+id/textview_username"
+        android:id="@+id/textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello:"
+        android:text=""
         android:layout_marginBottom="60dp"
         android:textSize="20dp"/>
-
-    <Button
-        android:id="@+id/button_logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Logout"
-        android:layout_below="@id/textview_username"/>
-
-
-    <Button
-        android:id="@+id/button_unregister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Unregister"
-        android:layout_below="@id/button_logout"/>
 
 </RelativeLayout>

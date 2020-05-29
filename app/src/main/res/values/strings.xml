@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Dagger Experimentation</string>
+    <string name="decoration">***</string>
 </resources>

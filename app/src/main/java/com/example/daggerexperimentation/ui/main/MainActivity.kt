@@ -6,32 +6,34 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.daggerexperimentation.MyApplication
 import com.example.daggerexperimentation.R
-import com.example.daggerexperimentation.ui.login.LoginActivity
-import com.example.daggerexperimentation.ui.registration.RegistrationActivity
-import com.example.daggerexperimentation.ui.splash.SplashActivity
+import com.example.daggerexperimentation.di.StringDecorator
+import com.example.daggerexperimentation.di.activity.ActivityNameString
+import com.example.daggerexperimentation.di.activity.DaggerActivityComponent
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
+//    @Inject
+//    lateinit var decorator: StringDecorator
+//
+//    @Inject
+//    lateinit var viewModel: MainViewModel
+
+    @ActivityNameString
     @Inject
-    lateinit var viewModel: MainViewModel
+    lateinit var activityName: String
+
+    @Inject
+    lateinit var foo: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        (application as MyApplication).component.inject(this)
+        DaggerActivityComponent.factory().create(this, "Foo").inject(this)
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        textview_username.text = "Hello ${viewModel.getUserName()}"
-        button_unregister.setOnClickListener {
-            viewModel.unRegisterUser()
-            RegistrationActivity.start(this)
-        }
-
-        button_logout.setOnClickListener {
-            viewModel.logout()
-            LoginActivity.start(this)
-        }
+        textview.text = "$activityName $foo"
     }
 
     companion object {
