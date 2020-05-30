@@ -2,19 +2,21 @@ package com.example.daggerexperimentation.di.activity
 
 import android.app.Activity
 import com.example.daggerexperimentation.di.ActivityScope
+import com.example.daggerexperimentation.di.app.AppComponent
 import com.example.daggerexperimentation.ui.main.MainActivity
 import dagger.BindsInstance
-import dagger.Subcomponent
+import dagger.Component
 
 @ActivityScope
-@Subcomponent(modules = [ActivityModule::class])
+@Component(modules = [ActivityModule::class], dependencies = [AppComponent::class])
 interface ActivityComponent {
 
-    @Subcomponent.Factory
+    @Component.Factory
     interface Factory {
         fun create(
             @BindsInstance activity: Activity,
-            @BindsInstance string: String
+            @BindsInstance string: String,
+            appComponent: AppComponent
         ): ActivityComponent
     }
 

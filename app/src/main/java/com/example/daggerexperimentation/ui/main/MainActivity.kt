@@ -9,17 +9,12 @@ import com.example.daggerexperimentation.MyApplication
 import com.example.daggerexperimentation.R
 import com.example.daggerexperimentation.di.StringDecorator
 import com.example.daggerexperimentation.di.activity.ActivityNameString
+import com.example.daggerexperimentation.di.activity.DaggerActivityComponent
 import com.example.daggerexperimentation.di.app.DaggerAppComponent
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
-
-//    @Inject
-//    lateinit var decorator: StringDecorator
-//
-//    @Inject
-//    lateinit var viewModel: MainViewModel
 
     @ActivityNameString
     @Inject
@@ -32,7 +27,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        (application as MyApplication).component.activityComponent().create(this, "foo").inject(this)
+        val appComponent = (application as MyApplication).component
+        DaggerActivityComponent.factory().create(this, "Foo", appComponent).inject(this)
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
