@@ -6,10 +6,14 @@ import dagger.Provides
 
 @Module
 object ActivityModule {
-
+    /**
+     * Dagger will generate a ActivityModule_ActivityNameProviderFactory
+     * that will allow dagger to generate instance of the ActivityNameString
+     * on demand
+     */
     @ActivityNameString
     @Provides
-    fun stringProvider(activity: Activity): String {
+    fun activityNameProvider(activity: Activity): String {
         return activity::class.java.name
     }
 }

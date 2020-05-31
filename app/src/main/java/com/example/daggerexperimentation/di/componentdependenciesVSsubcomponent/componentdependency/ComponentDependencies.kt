@@ -1,16 +1,14 @@
 package com.example.daggerexperimentation.di.componentdependenciesVSsubcomponent.componentdependency
 
+import android.app.Activity
 import android.app.Application
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import dagger.BindsInstance
 import dagger.Component
 import dagger.Module
 import dagger.Provides
 import javax.inject.Inject
-
-    /**
-     * COMPONENT DEPENDENCIES
-     */
     @Component(modules = [MainComponentModule::class])
     interface MainComponent {
         /**
@@ -33,6 +31,9 @@ import javax.inject.Inject
     class Dependency1
     class Dependency2
 
+    /**
+     * We declare MainComponent to be a dependency of DependentComponent
+     */
     @Component(dependencies = [MainComponent::class])
     interface DependentComponent {
 
@@ -43,7 +44,10 @@ import javax.inject.Inject
          */
         @Component.Factory
         interface Factory {
-            fun build(mainComponent: MainComponent): DependentComponent
+            fun build(
+                @BindsInstance activity: Activity,
+                mainComponent: MainComponent
+            ): DependentComponent
         }
 
         fun inject(activity: DependentActivity)
@@ -72,7 +76,7 @@ import javax.inject.Inject
         override fun onCreate(savedInstanceState: Bundle?) {
             val component = (application as MainApplication).component
             DaggerDependentComponent.factory()
-                .build(component).inject(this)
+                .build(this, component).inject(this)
             super.onCreate(savedInstanceState)
         }
     }
