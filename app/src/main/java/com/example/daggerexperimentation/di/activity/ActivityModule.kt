@@ -1,21 +1,11 @@
 package com.example.daggerexperimentation.di.activity
 
 import android.app.Activity
-import android.content.Context
-import com.example.daggerexperimentation.di.ActivityScope
-import com.example.daggerexperimentation.di.StringDecorator
 import dagger.Module
 import dagger.Provides
-import javax.inject.Qualifier
 
 @Module
-class ActivityModule {
-
-    @ActivityScope
-    @Provides
-    fun providesStringDecorator(context: Context): StringDecorator {
-        return StringDecorator(context)
-    }
+object ActivityModule {
 
     @ActivityNameString
     @Provides
@@ -23,7 +13,3 @@ class ActivityModule {
         return activity::class.java.name
     }
 }
-
-@Retention(AnnotationRetention.BINARY)
-@Qualifier
-annotation class ActivityNameString
