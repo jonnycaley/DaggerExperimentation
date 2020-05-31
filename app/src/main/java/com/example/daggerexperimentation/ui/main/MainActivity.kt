@@ -7,8 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.daggerexperimentation.MyApplication
 import com.example.daggerexperimentation.R
-import com.example.daggerexperimentation.di.activity.ActivityNameString
-import com.example.daggerexperimentation.di.activity.DaggerActivityComponent
+import com.example.daggerexperimentation.explanations.activity.ActivityNameString
+import com.example.daggerexperimentation.explanations.activity.DaggerActivityComponent
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 

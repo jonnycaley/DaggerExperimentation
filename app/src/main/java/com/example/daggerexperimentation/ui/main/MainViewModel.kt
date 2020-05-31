@@ -2,9 +2,7 @@ package com.example.daggerexperimentation.ui.main
 
 import android.content.SharedPreferences
 import androidx.lifecycle.ViewModel
-import com.example.daggerexperimentation.di.activity.ActivityScope
 import javax.inject.Inject
-import javax.inject.Singleton
 
 /**
  * Dagger will generate factories for dependencies annotated with @Inject.

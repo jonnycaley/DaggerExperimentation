@@ -1,4 +1,4 @@
-package com.example.daggerexperimentation.di.activity
+package com.example.daggerexperimentation.explanations.activity
 
 import android.app.Activity
 import dagger.Module

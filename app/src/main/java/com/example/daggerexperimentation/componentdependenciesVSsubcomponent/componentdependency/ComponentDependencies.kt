@@ -1,4 +1,4 @@
-package com.example.daggerexperimentation.di.componentdependenciesVSsubcomponent.componentdependency
+package com.example.daggerexperimentation.componentdependenciesVSsubcomponent.componentdependency
 
 import android.app.Activity
 import android.app.Application

@@ -1,9 +1,8 @@
-package com.example.daggerexperimentation.di.app
+package com.example.daggerexperimentation.explanations.app
 
 import android.app.Application
 import android.content.SharedPreferences
 import com.example.daggerexperimentation.MyApplication
-import com.example.daggerexperimentation.di.activity.ActivityComponent
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton

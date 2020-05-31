@@ -1,10 +1,10 @@
-package com.example.daggerexperimentation.di.componentdependenciesVSsubcomponent.subcomponent
+package com.example.daggerexperimentation.componentdependenciesVSsubcomponent.subcomponent
 
 import android.app.Application
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.daggerexperimentation.di.componentdependenciesVSsubcomponent.componentdependency.Dependency1
-import com.example.daggerexperimentation.di.componentdependenciesVSsubcomponent.componentdependency.Dependency2
+import com.example.daggerexperimentation.componentdependenciesVSsubcomponent.componentdependency.Dependency1
+import com.example.daggerexperimentation.componentdependenciesVSsubcomponent.componentdependency.Dependency2
 import dagger.Component
 import dagger.Module
 import dagger.Provides

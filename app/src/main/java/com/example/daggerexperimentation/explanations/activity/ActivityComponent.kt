@@ -1,7 +1,7 @@
-package com.example.daggerexperimentation.di.activity
+package com.example.daggerexperimentation.explanations.activity
 
 import android.app.Activity
-import com.example.daggerexperimentation.di.app.AppComponent
+import com.example.daggerexperimentation.explanations.app.AppComponent
 import com.example.daggerexperimentation.ui.main.MainActivity
 import dagger.BindsInstance
 import dagger.Component
