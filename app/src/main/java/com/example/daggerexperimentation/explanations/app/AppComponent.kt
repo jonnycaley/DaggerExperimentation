@@ -3,12 +3,14 @@ package com.example.daggerexperimentation.explanations.app
 import android.app.Application
 import android.content.SharedPreferences
 import com.example.daggerexperimentation.MyApplication
+import com.example.daggerexperimentation.multibindings.MultibindingsModule
+import com.example.daggerexperimentation.multibindings.StringDecorator
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = [AppModule::class])
+@Component(modules = [AppModule::class, MultibindingsModule::class])
 /**
  * Dagger will create a implementation of this component called DaggerAppComponent
  */
